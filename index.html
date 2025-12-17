@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Group Scheduler</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Group Project Scheduler</h1>
+
+  <div class="section">
+    <button onclick="createGroup()">Create Group</button>
+    <p id="groupCode"></p>
+  </div>
+
+  <div class="section">
+    <h2>Submit Availability</h2>
+
+    <input id="name" placeholder="Your name">
+
+    <div class="grid-controls">
+      <label>Start hour:
+        <input id="startHour" type="number" value="8" min="0" max="23" />
+      </label>
+
+      <label>End hour:
+        <input id="endHour" type="number" value="22" min="1" max="24" />
+      </label>
+
+      <button onclick="buildGrid()">Build Grid</button>
+      <button onclick="clearGrid()">Clear</button>
+    </div>
+
+    <div id="availabilityGrid" class="availability-grid"></div>
+
+    <button onclick="submitAvailability()">Submit</button>
+    <p id="submitStatus"></p>
+  </div>
+
+<div class="section">
+  <h2>Get Suggestions</h2>
+
+  <div class="controls">
+    <label>
+      Min People:
+      <input id="minPeople" type="number" value="2" min="1">
+    </label>
+
+    <label>
+      Duration (hours):
+      <input id="durationHours" type="number" value="1" min="1" max="6">
+    </label>
+
+    <label>
+      Limit:
+      <input id="limit" type="number" value="5" min="1" max="20">
+    </label>
+  </div>
+
+  <button onclick="getSuggestions()">Get Best Times</button>
+
+  <div id="results" class="results"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
